@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
+import { dotenv} from "./config/env.js";
 import connectDB from './db/db.js';
 import { app } from './app.js';
-
-dotenv.config({ path: './.env' });
+import { v2 as cloudinary } from "cloudinary";
+// dotenv.config({ path: './.env' });
 
 
 
@@ -15,6 +15,9 @@ connectDB()
 .catch((error) => {
     console.error('Error connecting to the database:', error);
 })
+
+console.log("Cloudinary sees key:", cloudinary.config().api_key);
+
 
 
 
